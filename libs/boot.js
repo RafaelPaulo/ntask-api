@@ -1,11 +1,12 @@
 module.exports = app => {
 
-    app.db.sequelize.sync().done(() => {
+    if(process.env.NODE_ENV !== 'test'){
+        app.db.sequelize.sync().done(() => {
 
-        app.listen(app.get('port'), () => {
-            console.log(`NTask API - Listen on port ${app.get('port')}`)
+            app.listen(app.get('port'), () => {
+                console.log(`NTask API - Listen on port ${app.get('port')}`)
+            })
+
         })
-
-    })
-
+    }
 }

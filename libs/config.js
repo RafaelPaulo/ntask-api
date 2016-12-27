@@ -1,12 +1,9 @@
-module.exports = {
-    database: 'ntask',
-    username: 'ntask_rafael',
-    password: 'admin_admin',
-    params: {
-        dialect: 'sqlite',
-        storage: 'ntask.sqlite',
-        define: {
-            underscored: true
-        }
+module.exports = app => {
+    const env = process.env.NODE_ENV
+
+    if(env){
+        return require(`./config.${env}.js`)
     }
+
+    return require('./config.development.js')
 }
