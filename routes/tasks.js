@@ -54,14 +54,14 @@ module.exports = app => {
                 })
         })
         .delete((req, res) => {
-            Tasks.destroy(req.body, {where: {
+            Tasks.destroy({where: {
                 id: req.params.id,
                 user_id: req.user.id
             }})
-                .then(result => res.sendStatus(204))
-                .catch(error => {
-                    res.status(412).json({msg: error.message})
-                })
+            .then(result => res.sendStatus(204))
+            .catch(error => {
+                res.status(412).json({msg: error.message})
+            })
         })
 
 }
