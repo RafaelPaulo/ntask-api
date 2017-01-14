@@ -4,15 +4,16 @@
   "description": "Tasks manager API",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha test/**/*.js",
-    "start": "npm run apidoc && babel-node index.js",
-    "dev": "nodemon --exec babel-node index.js",
-    "apidoc": "apidoc -i routes/ -o public/apidoc"
+    "dev": "nodemon --exec babel-node clusters",
+    "start": "npm run apidoc && babel-node clusters.js",
+    "clusters": "babel-node clusters.js",
+    "apidoc": "apidoc -i routes/ -o public/apidoc",
+    "test": "NODE_ENV=test mocha test/**/*.js"
   },
   "apidoc": {
     "name": "Documentation - Node Task API",
     "template": {
-        "forceLanguage": "en"
+      "forceLanguage": "en"
     }
   },
   "author": "Rafael Paulo da Silva Queiroz <rafael-sq@hotmail.com> (https://github.com/rafaelpaulo)",
@@ -23,12 +24,15 @@
     "bcrypt": "^1.0.1",
     "body-parser": "^1.15.2",
     "consign": "^0.1.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "jwt-simple": "^0.5.1",
+    "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "sequelize": "^3.27.0",
-    "sqlite": "^2.2.4"
+    "sqlite": "^2.2.4",
+    "winston": "^2.3.0"
   },
   "devDependencies": {
     "apidoc": "^0.16.1",
