@@ -68,7 +68,7 @@ module.exports = app => {
         *   HTTP/1.1 412 Precondition Failed
         */
         .post((req, res) => {
-            req.body.id = req.user.id
+            req.body.user_id = req.user.id
             Tasks.create(req.body)
                 .then(result => res.json(result))
                 .catch(error => {
