@@ -8,7 +8,8 @@
     "start": "npm run apidoc && babel-node clusters.js",
     "clusters": "babel-node clusters.js",
     "apidoc": "apidoc -i routes/ -o public/apidoc",
-    "test": "NODE_ENV=test mocha test/**/*.js"
+    "test": "NODE_ENV=test mocha test/**/*.js",
+    "test-cover": "babel-node node_modules/.bin/istanbul cover _mocha -- -u exports -R spec test/**/*.js"
   },
   "apidoc": {
     "name": "Documentation - Node Task API",
@@ -40,6 +41,7 @@
     "apidoc": "^0.16.1",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "supertest": "^2.0.1"
